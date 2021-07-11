@@ -1,17 +1,17 @@
 # TODO:
 # - runtime Requires if any
-%define		kdeframever	5.83
+%define		kdeframever	5.84
 %define		qtver		5.9.0
 %define		kfname		kholidays
 
 Summary:	kholidays
 Name:		kf5-%{kfname}
-Version:	5.83.0
+Version:	5.84.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	19da54eb84028eced1488eecc900e904
+# Source0-md5:	3059937e7cb881b040d3f5cc7360a9a8
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Test-devel >= %{qtver}
