@@ -3,18 +3,18 @@
 %bcond_with	tests		# build with tests
 # TODO:
 # - runtime Requires if any
-%define		kdeframever	5.104
+%define		kdeframever	5.105
 %define		qtver		5.15.2
 %define		kfname		kholidays
 
 Summary:	kholidays
 Name:		kf5-%{kfname}
-Version:	5.104.0
-Release:	2
+Version:	5.105.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	ab68d9050bbf5bdf41d1b46ea8e35da5
+# Source0-md5:	c79f6bd70668f6d4af35884bc1ca3f2d
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Test-devel >= %{qtver}
