@@ -3,21 +3,21 @@
 %bcond_with	tests		# build with tests
 # TODO:
 # - runtime Requires if any
-%define		kdeframever	5.249.0
+%define		kdeframever	5.114
 %define		qtver		5.15.2
 %define		kfname		kholidays
 
 Summary:	kholidays
 Name:		kf5-%{kfname}
-Version:	5.249.0
-Release:	0.1
+Version:	5.114.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/unstable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	56eff1e0a5dac9760c26776dda3443d1
+Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
+# Source0-md5:	7f3c79ebf5b0e22e31e350439511ea33
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Core-devel >= %{qtver}
-BuildRequires:	Qt6Test-devel >= %{qtver}
+BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5Test-devel >= %{qtver}
 BuildRequires:	bzip2-devel
 BuildRequires:	cmake >= 3.16
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
@@ -30,7 +30,7 @@ BuildRequires:	zlib-devel
 Requires:	kf5-dirs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		qt6dir		%{_libdir}/qt6
+%define		qt5dir		%{_libdir}/qt5
 
 %description
 kholidays.
@@ -67,7 +67,7 @@ Pliki nagłówkowe dla programistów używających %{kfname}.
 rm -rf $RPM_BUILD_ROOT
 %ninja_install -C build
 
-%find_lang %{kfname}6_qt --with-qm --all-name --with-kde
+%find_lang %{kfname}5_qt --with-qm --all-name --with-kde
 
 
 %clean
@@ -76,20 +76,18 @@ rm -rf $RPM_BUILD_ROOT
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files -f %{kfname}6_qt.lang
+%files -f %{kfname}5_qt.lang
 %defattr(644,root,root,755)
-%{_libdir}/libKF6Holidays.so.6
-%{_libdir}/libKF6Holidays.so.5.*.*
-%dir %{_libdir}/qt6/qml/org/kde/kholidays
-%{_libdir}/qt6/qml/org/kde/kholidays/libkholidaysdeclarativeplugin.so
-%{_libdir}/qt6/qml/org/kde/kholidays/qmldir
-%{_datadir}/qlogging-categories6/kholidays.categories
-%{_libdir}/qt6/qml/org/kde/kholidays/kde-qmlmodule.version
-%{_libdir}/qt6/qml/org/kde/kholidays/kholidaysdeclarativeplugin.qmltypes
-
+%{_libdir}/libKF5Holidays.so.5
+%{_libdir}/libKF5Holidays.so.5.*.*
+%dir %{_libdir}/qt5/qml/org/kde/kholidays
+%{_libdir}/qt5/qml/org/kde/kholidays/libkholidaysdeclarativeplugin.so
+%{_libdir}/qt5/qml/org/kde/kholidays/qmldir
+%{_datadir}/qlogging-categories5/kholidays.categories
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/KF6/KHolidays
-%{_libdir}/cmake/KF6Holidays
-%{_libdir}/libKF6Holidays.so
+%{_includedir}/KF5/KHolidays
+%{_libdir}/cmake/KF5Holidays
+%{_libdir}/libKF5Holidays.so
+%{_libdir}/qt5/mkspecs/modules/qt_KHolidays.pri
